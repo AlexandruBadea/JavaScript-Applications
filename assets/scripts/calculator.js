@@ -1,56 +1,22 @@
-let display = document.getElementById('display'),
- num1 = 0,
- num2 = 0,
- currentVal = "",
- operator = 9999,
- oppValue = false;
+const arr = [1, "A", "BB", ["C", 2, ["ceva", "altceva", 3], "ex", 4]];
 
-function numClick(num) {
-  currentVal += num.toString();
-  display.innerHTML = currentVal;
-}
-
-// Operators
-
-function oppClick(opp) {
-  
-  
-  if (oppValue === false) {
-
-    num1 = parseFloat(currentVal);
-    oppValue = true;
-  } 
-  else {
-
-    num2 = parseFloat(currentVal);
-
-    if (operator === 1) {
-      num1 = num1 + num2;
-    } 
-    else if (operator === 2) {
-      num1 = num1 - num2;
-    } 
-    else if (operator === 3) {
-      num1 = num1 * num2;
-    } 
-    else if (operator === 4) {
-      num1 = num1 / num2;
+function countLetters(arr){
+  let output = {};
+  for(let i = 0; i < arr.length; i++)
+  {
+    if(typeof arr[i] === "string")
+    {
+      for(let j = 0; j < arr[i].length; j++)
+      {
+          output[arr[i][j]] = output[arr[i][j]] + 1 || 1;
+      }
     }
-  } 
-  display.innerHTML = num1;
-  
-  num2 = 0;
-  operator = opp;
-  currentVal = "";
-  
-  if (opp === 0) {
-    num1 = 0;
-    num2 = 0;
-    currentVal = "";
-    operator = 9999;
-    oppValue = false;
-    display.innerHTML = num1;
+    if(Array.isArray(arr[i]))
+    {
+      countLetters(arr[i]);
+    }
   }
-  
-}
+  return output;
+};
 
+console.log(countLetters(arr));
