@@ -5,7 +5,7 @@ function countElementsByLevel(srcDOMElement, childElementName){
     
     for (let i = 0; i < childElements.length; i++) {
         let childElement = childElements[i];
-        if (childElement.nodeName.toLowerCase() == childElementName) {
+        if (childElement.nodeName == childElementName) {
             count++;
             let level = childElement.getAttribute("data-level");
             if (level in result) {
