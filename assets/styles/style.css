@@ -16,7 +16,9 @@ h1{
     text-transform: uppercase;
 }
 
-.container{
+p{
   color: white;
-  margin-top: 20px;
+  font-family: monospace;
+  font-size: 20px;
+  text-align: center;
 }
